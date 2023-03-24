@@ -1,10 +1,14 @@
-const clientId = "322cbef03cf542e4a311a51395f573d7";
+
+
+
 const redirectUrl = "http://jamming-react-todu.surge.sh";
 let accessToken;
 
 const spotify = {
+  
   getAccessToken() {
-    console.log("getAccessToken() called");
+    console.log("works");
+    
 
     if (accessToken) {
       
@@ -28,7 +32,7 @@ const spotify = {
     } else {
  
 
-      const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUrl}`;
+      const accessUrl = `${process.env.REACT_APP_SPOTIFY_URL}?client_id=${process.env.REACT_APP_SPOTIFY_KEY}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUrl}`;
       window.location = accessUrl;
     }
   },
